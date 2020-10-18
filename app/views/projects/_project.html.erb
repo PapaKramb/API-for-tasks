@@ -1,0 +1,8 @@
+<h2><%= project.title %></h2>
+
+<% project.todos.all.each do |todo| %>
+  <p>
+  	<%= check_box('tag', todo.__id__, {class: 'icheckbox_square-blue', checked: todo.isCompleted}) %> 
+  	<%= content_tag :todotext, todo.text %>
+  </p>
+<% end %>

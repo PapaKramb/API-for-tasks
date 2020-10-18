@@ -1,0 +1,12 @@
+<%= form_for(local_assigns[:project] || @project) do |f| %>
+
+    <%= f.label :title %>
+
+    <%= f.fields_for(:todos) do |tf| %>
+
+          <%= tf.check_box :isCompleted %>
+          <%= tf.label :text %>
+
+    <% end %>
+
+<% end %>

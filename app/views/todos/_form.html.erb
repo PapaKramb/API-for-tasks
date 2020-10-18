@@ -1,0 +1,17 @@
+<%= form_for @todo do |f| %>
+
+<p>
+  <%= f.label 'Категория:' %>
+  <%= select_tag "project_id", options_for_select(Project.pluck(:title, :id)) %>
+</p>
+
+ <p>
+  <%= f.label 'Задача: ' %>
+  <%= f.text_field :text %>
+ </p>
+
+<p>
+   <%= f.submit 'Добавить' %>
+</p>
+
+<% end %>

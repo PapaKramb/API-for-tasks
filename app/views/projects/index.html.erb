@@ -1,0 +1,17 @@
+<% @projects.each do |project| %>
+
+  <%= form_for(local_assigns[:project] || project) do |f| %>
+    <p>
+      <h2> <%= f.object.title %> </h2>
+    </p>
+
+      <%= f.fields_for(:todos) do |todo| %>
+        <p>
+            <%= todo.check_box :isCompleted %>
+            <%= todo.object.text %>
+        </p>
+
+      <% end %>
+
+  <% end %>
+<% end %>
