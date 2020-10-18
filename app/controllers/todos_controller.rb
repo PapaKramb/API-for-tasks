@@ -7,7 +7,7 @@ class TodosController < ApplicationController
     @project = Project.find(params[:project_id])
     @todo = @project.todos.new(todo_params)
     if @todo.save
-      redirect_to root_path
+      redirect_to projects_path
     else
       render :new
     end
