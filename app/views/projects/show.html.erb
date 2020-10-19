@@ -1,5 +1,9 @@
 <h2> <%= @project.title %> </h2>
 <% @project.todos.all.each do |todo| %>
-    <p><%= todo.text %> <%= check_box('tag', todo.__id__, {checked: todo.isCompleted}) %></p>
+    <p>
+    	<%= todo.text %>
+    	<%= hidden_field_tag :isCompleted, 'false' %>
+     	<%= check_box('tag', todo.__id__, {class: 'icheckbox_square-blue', checked: todo.isCompleted}) %> 
+     </p>
 <% end %>
 <%= link_to 'Вернуться на главную страницу', projects_path %>

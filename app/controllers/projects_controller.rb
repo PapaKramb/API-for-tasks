@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.order('created_at DESC')
   end
 
   def show
@@ -35,6 +35,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, todos_attributes: [:isCompleted, :text])
+    params.require(:project).permit(:foo, :bar, todos_attributes: [:isCompleted, :text])
   end
 end
